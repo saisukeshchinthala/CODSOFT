@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Assistant Chatbot</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Inter for clean, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="light-mode">
+    <!-- Audio Elements for UI sounds -->
+    <audio id="send-sound" src="https://actions.google.com/sounds/v1/ui/message_sent.ogg"></audio>
+    <audio id="receive-sound" src="https://actions.google.com/sounds/v1/ui/message_receive.ogg"></audio>
+
+    <main class="chat-container">
+        <!-- Header Section -->
+        <header class="chat-header">
+            <div class="header-profile">
+                <div class="avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M12 2a2 2 0 0 1 2 2c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2zm0 14c-4.4 0-8-1.8-8-4v-2c0-2.2 3.6-4 8-4s8 1.8 8 4v2c0 2.2-3.6 4-8 4z" />
+                        <path d="M12 22c-4.4 0-8-1.8-8-4v-2c0-2.2 3.6-4 8-4s8 1.8 8 4v2c0 2.2-3.6 4-8 4z" />
+                    </svg>
+                </div>
+                <div class="header-info">
+                    <h2>Nexus Assistant</h2>
+                    <span class="status">Online</span>
+                </div>
+            </div>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Chat History Area -->
+        <section class="chat-box" id="chat-box" aria-live="polite">
+            <!-- Default Bot Greeting -->
+            <article class="message bot-message slide-in">
+                <div class="message-content">
+                    <p>Hello! I'm Nexus, your virtual assistant. How can I help you today? 😊</p>
+                    <span class="timestamp" id="initial-time"></span>
+                </div>
+            </article>
+        </section>
+
+        <!-- Input Area -->
+        <footer class="input-area">
+            <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off"
+                aria-label="Message Input">
+            <button id="send-btn" aria-label="Send Message">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </footer>
+    </main>
+
+    <!-- JavaScript logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>

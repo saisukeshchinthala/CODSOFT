@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e1b4b, #312e81, #4c1d95); /* Dark blue/purple gradient */
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+#status {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    height: 35px;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+/* Hard-coded dimensions guarantee the grid will always be visible */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 110px);
+    grid-template-rows: repeat(3, 110px);
+    gap: 8px; /* Creates visible borders between cells */
+    background-color: #94a3b8; /* Border color */
+    padding: 8px; /* Outer border */
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.cell {
+    background-color: #0f172a; /* Inner cell color */
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover effect only for empty cells */
+.cell:hover:not(.taken) {
+    background-color: #1e293b;
+    transform: scale(0.98);
+}
+
+/* Disable pointer events on taken cells to prevent double-clicks */
+.cell.taken {
+    cursor: default;
+}
+
+/* X and O colors */
+.cell.x {
+    color: #38bdf8; /* Light Blue */
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.cell.o {
+    color: #f472b6; /* Pink/Purple */
+    text-shadow: 0 0 10px rgba(244, 114, 182, 0.5);
+}
+
+/* Highlight winning line */
+.cell.winning-cell {
+    background-color: #22c55e; /* Green */
+    color: #ffffff;
+    text-shadow: none;
+    transform: scale(1.05);
+    z-index: 1;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+}
+
+#restart-btn {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background: #6366f1; /* Indigo */
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4);
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+#restart-btn:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+}
+
+#restart-btn:active {
+    transform: translateY(0);
+}
